@@ -24,4 +24,57 @@ body{
 @keyframes modalopen {
     from {opacity: 0}
     to {opacity: 1}
-  }
+}
+.btn{
+    border: none;
+    color: #fff;
+    font-weight: bold;
+    cursor: pointer;
+}
+.btn:hover{
+    color: var(--text-bl);
+    background-color: var(--color-gr)!important;
+}
+.product-sale-btn{
+    padding: 0 10px;
+}
+.btn-product{
+    background-color: var(--color-gr);
+    height: 37px;
+    width: 100%;
+    font-size: 1.5rem;
+    color: var(--text-bl);
+    user-select: none;
+}
+.btn-product:hover{
+    background-color: var(--mainColor)!important;
+    color: var(--text-wh);
+}
+.active{
+    background-color: var(--color-gr);
+}
+.category__list.dragging{
+    scroll-behavior: auto;
+}
+.product-sale__list.dragging{
+    scroll-behavior: auto;
+}
+.price-product{
+    /* display: flex; */
+    margin: 12px 0;
+    padding: 0 8px;
+    user-select: none;
+    /* justify-content: space-around; */
+}
+.price-product .curent-price{
+    font-weight: bold;
+    color: #c30000;
+    font-size: 1.9rem;
+    display: inline-block;
+}
+.price-product .old-price{
+    text-decoration: line-through;
+    color: #7b7b7b;
+    display: inline-block;
+    margin-left: 12px;
+}
