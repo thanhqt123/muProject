@@ -60,11 +60,9 @@ body{
     scroll-behavior: auto;
 }
 .price-product{
-    /* display: flex; */
     margin: 12px 0;
     padding: 0 8px;
     user-select: none;
-    /* justify-content: space-around; */
 }
 .price-product .curent-price{
     font-weight: bold;

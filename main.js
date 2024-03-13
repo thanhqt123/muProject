@@ -105,6 +105,6 @@ function handleCate(el){
 
 }
 handleSlider();
-handleCate(cateList)
-handleCate(productSaleList)
+handleCate(cateList);
+handleCate(productSaleList);
 handleModal();

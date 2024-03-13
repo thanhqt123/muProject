@@ -464,7 +464,7 @@
     background-color: var(--color-gr);
 }
 .product-sale{
-    margin-top: 30px;
+    margin-top: 29px;
     display: grid;
     grid-template-columns: 25% 70%;
     background-color: #09566a;
