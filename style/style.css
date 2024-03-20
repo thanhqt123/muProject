@@ -465,13 +465,14 @@
 }
 .product-sale{
     margin-top: 29px;
-    display: grid;
-    grid-template-columns: 25% 70%;
+    /* display: grid;
+    grid-template-columns: 20% 80%; */
     background-color: #09566a;
+    display: flex;
 }
 .product-sale__list{
-    display: flex;  
-    gap: 15px;
+    /* display: flex;   */
+    /* gap: 15px; */
     padding: 30px;
     overflow-x: auto;
 }
@@ -513,12 +514,12 @@
     user-select: none;
 }
 .product-sale__thumb .img-item{
-    width: 180px;
+    width: 100%;
     -webkit-user-drag: none;
     user-select: none;
 }
 
-.product-sale__name{
+.product-name{
     user-select: none;
     margin: 10px 0;
     padding: 0 8px;
@@ -532,4 +533,172 @@
     margin: 12px 0;
     text-align: center;
     user-select: none;
+}
+.product-sale__info{
+    padding: 20px;
+}
+.product-sale__info h2{
+    color: var(--text-wh);
+    font-size: 2.8rem;
+    margin: 12px 0;
+}
+.title-count-down{
+    color: var(--text-wh);
+    font-size: 2.2rem;
+    font-weight: 600;
+
+}
+.timer-view{
+    margin: 20px 0;
+    display: flex;
+    justify-content: space-between;
+    gap: 10px;
+    text-align: center;
+}
+.timer-view .block-time {
+    width: 84px;
+    height: 70px;
+    background-color: var(--mainColor);
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+
+}
+.timer-view .block-time p {
+    display: inline-block;
+    color: var(--text-wh);
+    font-size: 2.2rem;
+    font-weight: bold;
+    height: 100%;
+    line-height: 50px;
+}
+.timer-view .block-time span{
+    font-size: 1.6rem;
+    background-color: var(--color-gr);
+    font-weight: bold;
+    padding: 4px;
+}
+.btn.show-btn{
+    margin-top: 40px;
+    width: 200px;
+    height: 40px;
+    background-color: var(--mainColor);
+}
+/* .sale__info-btn{
+    width: 100%;
+    height: 100%;
+} */
+.container-product{
+    margin-top: 40px;
+    padding: 0 20px;
+}
+
+/* .container-product__heading{
+    display: flex;
+} */
+
+.container-product__heading-title{
+    width: 100%;
+    position: relative;
+}
+.container-product__heading-title::after{
+    content:"";
+    position: absolute;
+    background-color: var(--color-gr);
+    width: 66px;
+    height: 4px;
+    top: 32px;
+    left: 0;
+}
+.container-product__heading-tab{
+    flex: 1;
+    /* display: flex;
+    gap: 15px; */
+}
+
+.container-product__heading-tab-item{
+    cursor: pointer;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    width: 148px;
+    height: 35px;
+    background-color: #ccc;
+    clip-path: polygon(8px 0%, 100% 0%, calc(100% - 8px) 100%, 0% 100%);
+    margin-top: 10px;
+}
+
+.container-product__heading-tab-item:hover{
+    background-color: var(--mainColor)!important;
+    color: var(--text-wh);
+}
+.container-product__list{
+    margin-top: 30px;
+    
+}
+.container-product__item{
+    border: 1px solid #ccc;
+}
+.container-product__item:hover{
+    cursor: pointer;
+    transform: translateY(3px);
+
+}
+.container-product__img img{
+    width: 100%;
+}
+.container-product__info{
+    padding: 12px;
+    text-align: center;
+}
+.btn.btn-product i{
+    margin-left: 10px;
+    font-size: 2rem;
+}
+.banner{
+    padding: 0 22px;
+    margin-top: 50px;
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 20px;
+}
+.banner .left-banner{
+    position: relative;
+}
+.banner .left-banner img:hover{
+    transform: scale(1.02);
+}
+.banner .right-banner{
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    grid-template-rows: 166px 166px;
+    gap: 20px;
+}
+.banner .right-banner-top {
+    grid-column: 1/3;
+    position: relative;
+}
+.banner .right-banner-top:hover{
+    transform: scale(1.02);
+    cursor: pointer;
+}
+.banner .right-banner-top img , .banner .right-banner-bottom img ,.banner .left-banner img  {
+    cursor: pointer;
+    width: 100%;
+    transition: transform 0.3s ease;
+}
+.banner .right-banner-bottom{
+    position: relative;
+}
+
+.banner .right-banner-bottom:hover{
+    transform: scale(1.02);
+    cursor: pointer;
+}
+.banner-desc::after{
+    content: "";
+    position: absolute;
+    background-color: var(--color-gr);
+    width: 100px;
+    height: 5px;
 }

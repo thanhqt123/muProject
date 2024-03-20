@@ -14,6 +14,13 @@ const cateItems=$$('.category__item');
 const cateBtns=$$('.category__bnt .item');
 const productSaleList=$('.product-sale__list');
 const productSaleItmes=$$('.product-sale__item');
+const dayEl=document.getElementById('day');
+const hourEl=document.getElementById('hour');
+const minuteEl=document.getElementById('minute');
+const secondEl=document.getElementById('second');
+const modalOption=$('.option-product-modal');
+const btnCloseModaloption=$('.option-product-modal-icon');
+const btnProducts=$$(' .btn-product');
 function handleModal(){
     btnModalClose.onclick=function(){
         modalEl.style.display="none";
@@ -23,6 +30,16 @@ function handleModal(){
         
     
     }
+}
+function handleModalOption(){
+    btnCloseModaloption.onclick=function(){
+        modalOption.style.display="none";
+    }
+    btnProducts.forEach(function(btn){
+        btn.onclick=function(){
+            modalOption.style.display="flex";
+        }
+    });
 }
 function handleSlider() {
     let active = 0;
@@ -36,7 +53,7 @@ function handleSlider() {
         else{
             active+=1;
         }
-        handle();
+        showSlider();
     }
     sliderBtnLeft.onclick = function () {
         if(active-1<0){
@@ -45,27 +62,30 @@ function handleSlider() {
         else{
             active-=1;
         }
-        handle();
+        showSlider();
     }
 
-    function handle() {
+    function showSlider() {
         let valueEl = -widthEl * active;
         listSlider.style.transform = `translateX(${valueEl}px)`;
-        let lastActiveDot=$('.slider__dot span.active');
-        lastActiveDot.classList.remove("active");
+        DotSlider();
+        
+    }
+    function DotSlider(){
+        let lastActiveDot=$('.slider__dot span.active'); // lấy dot đang được active
+        lastActiveDot.classList.remove("active");    
         dotsSliders[active].classList.add("active");
     }
     dotsSliders.forEach((dot,index) =>{
         dot.addEventListener("click" , function(){
             active=index;
-            handle();
+            showSlider();
         })
     })
     setInterval(function(){
         sliderBtnRight.click();
     },7000);
 }
-
 
 function handleCate(el){
     let isDragging = false;
@@ -94,17 +114,50 @@ function handleCate(el){
     cateBtns.forEach(function(btn){
         btn.addEventListener("click",() =>{
             if(btn.id=="btn-next"){
-                el.scrollLeft +=350;
+                cateList.scrollLeft +=350;
             }
             else{
-                el.scrollLeft -=350;
+                cateList.scrollLeft -=350;
                 
             }
         })
     });
 
 }
-handleSlider();
-handleCate(cateList);
-handleCate(productSaleList);
-handleModal();
+
+
+function coutnDown(){
+    const timeSale='1 january 2025 ';
+    const currentDate=new Date();
+    const timeCountDown=new Date(timeSale);
+    const totalSecon=(timeCountDown -currentDate)/1000;
+    let days=Math.floor(totalSecon/3600/24);
+    let hours=Math.floor(totalSecon/3600)%24;
+    let minutes=Math.floor(totalSecon/60)%60 ;
+    let seconds=Math.floor(totalSecon)%60;
+
+    dayEl.innerHTML=formatDate(days)
+    hourEl.innerHTML=formatDate(hours)
+    minuteEl.innerHTML=formatDate(minutes)
+    secondEl.innerHTML=formatDate(seconds)
+
+    function formatDate(time){
+        if(time<10){
+            return `0${time}`
+        }
+        else{
+            return time;
+        }
+    }
+
+    setInterval (coutnDown,1000);
+}
+function start(){
+    handleModal();
+    handleSlider();
+    handleCate(cateList);
+    handleCate(productSaleList);
+    coutnDown();
+    handleModalOption();
+}
+start();

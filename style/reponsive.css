@@ -1,0 +1,14 @@
+@media (min-width: 768px) {
+}
+@media only screen and (min-width: 600px) and (max-width: 767px) {
+    /* CSS rules for tablets in landscape mode with smaller screens */
+    .product-name{
+        -webkit-line-clamp: 1 !important;
+    }
+    
+  }
+@media(min-width:740px) and (max-width: 1023px) {
+    .hide-on-table{
+        display: none;
+    }
+}
