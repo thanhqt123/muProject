@@ -484,11 +484,12 @@
 }
 .product-sale__item{
     -webkit-user-drag: none;
-    padding: 9px ;
     position: relative;
     width: 100%;
     cursor: pointer;
     background-color: var(--text-wh);
+    padding: 4px;
+    box-shadow: rgba(149, 157, 165, 0.2) 0px 8px 24px;
 }
 .discunt-percent{
     background-color: red;
@@ -498,7 +499,7 @@
     height: 20px;
     position: absolute;
     z-index: 99;
-    right: 96px;
+    right: 85px;
     top: 3px ;
     display: flex;
     justify-content: center;
@@ -536,11 +537,31 @@
 }
 .product-sale__info{
     padding: 20px;
+    height: 100%;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
 }
 .product-sale__info h2{
     color: var(--text-wh);
     font-size: 2.8rem;
     margin: 12px 0;
+}
+.product-sale__info h3{
+    color: var(--color-gr);
+    font-size: 2.8rem;
+    margin: 12px 0;
+}
+.product-sale__info .btn-section{
+    margin: 14px 0;
+}
+.product-sale__info .btn-section i{
+    width: 40px;
+    height: 32px;
+    border: 1px solid #ccc;
+    line-height: 32px;
+    text-align: center;
+    margin: 0 6px;
 }
 .title-count-down{
     color: var(--text-wh);
@@ -580,7 +601,7 @@
 }
 .btn.show-btn{
     margin-top: 40px;
-    width: 200px;
+    width: 100%;
     height: 40px;
     background-color: var(--mainColor);
 }
@@ -638,6 +659,7 @@
 }
 .container-product__item{
     border: 1px solid #ccc;
+    margin-top: 12px;
 }
 .container-product__item:hover{
     cursor: pointer;
@@ -701,4 +723,30 @@
     background-color: var(--color-gr);
     width: 100px;
     height: 5px;
+}
+.section-men{
+    background-color: var(--text-wh);
+}
+.big-banner{
+    margin-top: 30px;
+    padding: 0 45px;
+}
+.big-banner img{
+    width: 100%;
+}
+.fedd-back{
+    padding: 0 20px;
+    height: 5000px;
+    background-color: rgba(0, 0, 0, 0.15);
+}
+.fedd-back__containt{
+    display: grid;
+    grid-template-columns: 1fr 1fr ;
+    overflow-x: auto;
+    gap: 20px;
+}
+.fedd-back__item{
+    display: flex;
+    width: calc(100% / 2);
+    background-color: var(--text-wh);
 }

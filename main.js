@@ -12,7 +12,7 @@ const dotsSliders=$$('.slider__dot span');
 const cateList=$('.category__list');
 const cateItems=$$('.category__item');
 const cateBtns=$$('.category__bnt .item');
-const productSaleList=$('.product-sale__list');
+const productSaleList=$$('.product-sale__list');
 const productSaleItmes=$$('.product-sale__item');
 const dayEl=document.getElementById('day');
 const hourEl=document.getElementById('hour');
@@ -88,27 +88,31 @@ function handleSlider() {
 }
 
 function handleCate(el){
-    let isDragging = false;
+    productSaleList.forEach(function(product){
+        let isDragging = false;
 
     function dragging(e){
         if(!isDragging){
             return ;
         }
-        el.classList.add("dragging");
-        el.scrollLeft -=e.movementX;
+        product.classList.add("dragging");
+        product.scrollLeft -=e.movementX;
 
     }
     function mouseDown(){
         return isDragging=true;
     }
     function mouseUp(){
-        el.classList.remove("dragging");
+        product.classList.remove("dragging");
         return isDragging=false;
 
     }
-    el.addEventListener("mousemove",dragging);
-    el.addEventListener("mousedown",mouseDown);
-    el.addEventListener("mouseup",mouseUp);
+    product.addEventListener("mousemove",dragging);
+    product.addEventListener("mousedown",mouseDown);
+    product.addEventListener("mouseup",mouseUp);
+    })
+
+    
 
     
     cateBtns.forEach(function(btn){

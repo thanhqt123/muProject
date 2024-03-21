@@ -68,7 +68,6 @@ body{
 }
 .price-product{
     margin: 12px 0;
-    padding: 0 8px;
     display: flex;
     user-select: none;
     
@@ -86,7 +85,8 @@ body{
     margin-left: 12px;
 }
 .view-more-product{
-    text-align: center;
+    width: 300px;
+    margin: 0 auto;
 }
 .banner-desc{
     position: absolute;
@@ -191,4 +191,9 @@ body{
 .btn-product-modal{
     width: 50%;
     margin: 12px 0;
+}
+.btn-section i.active-btn-section{
+    border: 1.3px solid #000 !important;
+    background-color: var(--mainColor);
+    color:var(--text-wh)
 }
