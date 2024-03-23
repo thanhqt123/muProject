@@ -21,6 +21,11 @@ const secondEl=document.getElementById('second');
 const modalOption=$('.option-product-modal');
 const btnCloseModaloption=$('.option-product-modal-icon');
 const btnProducts=$$(' .btn-product');
+const feedbackContent=$('.feddback-content');
+const btnFeedback=$$('.feddback-btn i');
+const feedbackContentItems=$$('.feddback-content-item');
+const listBrand=$('.list-brand');
+const itemsBrand=$$('.list-brand .item');
 function handleModal(){
     btnModalClose.onclick=function(){
         modalEl.style.display="none";
@@ -87,48 +92,25 @@ function handleSlider() {
     },7000);
 }
 
-function handleCate(el){
-    productSaleList.forEach(function(product){
-        let isDragging = false;
 
-    function dragging(e){
+function feddback(){
+    let isDragging=false;
+    function dragging(e) {
         if(!isDragging){
-            return ;
+            return;
         }
-        product.classList.add("dragging");
-        product.scrollLeft -=e.movementX;
-
+        feedbackContent.scrollLeft -=e.movementX;
     }
     function mouseDown(){
-        return isDragging=true;
+        isDragging=true;
     }
     function mouseUp(){
-        product.classList.remove("dragging");
-        return isDragging=false;
-
+        isDragging=false;
     }
-    product.addEventListener("mousemove",dragging);
-    product.addEventListener("mousedown",mouseDown);
-    product.addEventListener("mouseup",mouseUp);
-    })
-
-    
-
-    
-    cateBtns.forEach(function(btn){
-        btn.addEventListener("click",() =>{
-            if(btn.id=="btn-next"){
-                cateList.scrollLeft +=350;
-            }
-            else{
-                cateList.scrollLeft -=350;
-                
-            }
-        })
-    });
-
+    feedbackContent.addEventListener("mousemove",dragging);
+    feedbackContent.addEventListener("mousedown",mouseDown);
+    feedbackContent.addEventListener("mouseup",mouseUp);
 }
-
 
 function coutnDown(){
     const timeSale='1 january 2025 ';
@@ -156,12 +138,68 @@ function coutnDown(){
 
     setInterval (coutnDown,1000);
 }
+function handleDragging(el){
+    cateBtns.forEach(function(btn){
+        btn.addEventListener("click",function(){
+            if(btn.id=="btn-next"){
+                cateList.scrollLeft+=350;
+            }
+            else{
+                cateList.scrollLeft-=350;
+
+            }
+        })
+    })
+    let isDragging=false;
+    function dragging(e){
+        if(!isDragging){
+            return ;
+        }
+        cateList.classList.add("dragging")
+        el.scrollLeft-=e.movementX;
+
+    }
+    function mouseDragging(){
+        return isDragging=true;
+    }
+    function mouseStop(){
+        cateList.classList.remove("dragging")
+        return isDragging=false;
+
+    }
+    el.addEventListener("mousemove", dragging);
+    el.addEventListener("mousedown", mouseDragging);
+    el.addEventListener("mouseup", mouseStop);
+}
+function handleDraggingProduct(){
+    productSaleList.forEach(function(productList){
+        let isDragging=false;
+        function dragging(e){
+            if(!isDragging){
+                return ;
+            }
+            productList.scrollLeft-=e.movementX;
+
+        }
+        function mouseUp(){
+            return isDragging=false;
+        }
+        function mouseDown(){
+            return isDragging=true;
+        }
+        productList.addEventListener("mousemove", dragging);
+        productList.addEventListener("mouseup", mouseUp);
+        productList.addEventListener("mousedown", mouseDown);
+    })
+}
 function start(){
     handleModal();
     handleSlider();
-    handleCate(cateList);
-    handleCate(productSaleList);
     coutnDown();
     handleModalOption();
+    feddback();
+    handleDragging(listBrand);
+    handleDragging(cateList);
+    handleDraggingProduct();
 }
 start();
