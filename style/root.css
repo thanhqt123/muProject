@@ -5,6 +5,16 @@
     --color-gr:#a2ff00;
     --color-pr:#c30000;
 }
+a{
+    text-decoration: none;
+    color: #000;
+    display: inline-block;
+    width: 100%;
+}
+a:hover{
+    color: var(--text-wh);
+}
+
 *{
     margin: 0;
     padding: 0;
@@ -197,3 +207,4 @@ body{
     background-color: var(--mainColor);
     color:var(--text-wh)
 }
+
