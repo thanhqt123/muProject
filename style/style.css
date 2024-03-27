@@ -58,7 +58,7 @@
     display: flex;
     align-items: center;
     justify-content: center;
-    webkit-clip-path: polygon(8px 0%, 100% 0%, 100% 100%, 0% 100%);
+    -webkit-clip-path: polygon(8px 0%, 100% 0%, 100% 100%, 0% 100%);
     clip-path: polygon(8px 0%, 100% 0%, 100% 100%, 0% 100%);
     cursor: pointer;
 }
